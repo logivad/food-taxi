@@ -1,6 +1,5 @@
 import { createRoot } from 'react-dom/client';
 import { restaurants } from '../mocks/restaurants';
-import { Fragment } from 'react/jsx-runtime';
 
 const root = document.getElementById('root');
 if (root) {
@@ -9,9 +8,9 @@ if (root) {
   reactRoot.render(
     <>
       {restaurants.map((restaurant) => (
-        <Fragment key={restaurant.id}>
-          <h1>{restaurant.name}</h1>
-          <h2>Меню</h2>
+        <section key={restaurant.id}>
+          <h2>{restaurant.name}</h2>
+          <h3>Меню</h3>
 
           <ul>
             {restaurant.menu.map((menuItem) => (
@@ -25,7 +24,8 @@ if (root) {
               <li key={review.id}>{review.text}</li>
             ))}
           </ul>
-        </Fragment>
+          <hr />
+        </section>
       ))}
     </>,
   );
