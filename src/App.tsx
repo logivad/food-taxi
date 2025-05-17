@@ -1,7 +1,9 @@
-import { restaurants } from '../mocks/restaurants';
 import { type FC } from 'react';
+import type { Restaurant } from './model/restaurant';
 
-export const App: FC = () => (
+type Props = { restaurants: Array<Restaurant> };
+
+export const App: FC<Props> = ({ restaurants }) => (
   <>
     {restaurants.map(({ id, name, menu, reviews }) => (
       <section key={id}>
