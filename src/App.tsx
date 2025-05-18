@@ -10,11 +10,11 @@ export const App: FC<Props> = ({ restaurants }) => (
         <h2>{name}</h2>
         <h3>Меню</h3>
 
-        <ul>
+        <ol>
           {menu.map(({ id, name }) => (
             <li key={id}>{name}</li>
           ))}
-        </ul>
+        </ol>
 
         <h3>Отзывы</h3>
         <ul>
