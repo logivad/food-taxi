@@ -1,18 +1,16 @@
 import { useState, type FC } from 'react';
-import { Header } from '../header/header';
-import { Footer } from '../footer/footer';
 import { MainNav } from '../nav/nav';
 import { RestaurantCard } from '../restaurant/restaurant-card';
 
 import restaurantsMock from '../../../mocks/restaurants';
+import { Layout } from '../layout/layout';
 
 export const App: FC = () => {
   const [restaurants] = useState(restaurantsMock);
   const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
 
   return (
-    <>
-      <Header />
+    <Layout>
       <MainNav
         restaurants={restaurants}
         onRestaurantSelect={(restaurant) =>
@@ -20,7 +18,6 @@ export const App: FC = () => {
         }
       />
       <RestaurantCard restaurant={activeRestaurant} />
-      <Footer />
-    </>
+    </Layout>
   );
 };
