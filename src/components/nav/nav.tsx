@@ -6,7 +6,10 @@ type Props = {
   onRestaurantSelect: (restaurant: Restaurant) => void;
 };
 
-export const MainNav: FC<Props> = ({ restaurants, onRestaurantSelect }) => {
+export const RestaurantsTabs: FC<Props> = ({
+  restaurants,
+  onRestaurantSelect,
+}) => {
   return (
     <nav>
       {restaurants.map((restaurant) => (
