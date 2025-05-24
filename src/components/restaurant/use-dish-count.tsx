@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const MIN_DISH_COUNT = 0;
 const MAX_DISH_COUNT = 5;
-const INITIAL_DISH_COUNT = 5;
+const INITIAL_DISH_COUNT = 0;
 
 export const useDishCount = () => {
   const [count, setCount] = useState(INITIAL_DISH_COUNT);
