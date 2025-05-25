@@ -31,5 +31,11 @@ export default tseslint.config({
       { allowConstantExport: true },
     ],
     'react/prop-types': 0,
+
+    // ESLint ошибочно срабатывает на "неиспользуемые параметры" при задании типов, см
+    // https://stackoverflow.com/questions/63767199/typescript-eslint-no-unused-vars-false-positive-in-type-declarations
+    // Отключим это правило. Это безопасно, потому что данную ошибку будет показывать
+    // правило "@typescript-eslint/no-unused-vars" из tseslint.configs.recommended
+    'no-unused-vars': 0,
   },
 });

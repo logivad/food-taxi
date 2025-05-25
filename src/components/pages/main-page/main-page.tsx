@@ -16,7 +16,7 @@ export const RestaurantsPage: FC = () => {
           restaurant !== activeRestaurant && setActiveRestaurant(restaurant)
         }
       />
-      <RestaurantCard restaurant={activeRestaurant} />
+      <RestaurantCard restaurant={activeRestaurant} key={activeRestaurant.id} />
     </div>
   );
 };

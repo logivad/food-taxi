@@ -1,16 +1,30 @@
 import { type FC } from 'react';
 
-export interface Props {
+export type Props = {
   value: number;
-  onDecrement: () => void;
-  onIncrement: () => void;
-}
+  min: number;
+  max: number;
+  onChange: (value: number) => void;
+};
 
-export const Counter: FC<Props> = ({ value, onDecrement, onIncrement }) => {
+export const Counter: FC<Props> = ({ value, min, max, onChange }) => {
   return (
     <span>
-      <button onClick={onDecrement}>-</button>
-      <button onClick={onIncrement}>+</button> {value}
+      <button
+        type="button"
+        onClick={() => onChange(value - 1)}
+        disabled={value <= min}
+      >
+        -
+      </button>
+      {value}
+      <button
+        type="button"
+        onClick={() => onChange(value + 1)}
+        disabled={value >= max}
+      >
+        +
+      </button>{' '}
     </span>
   );
 };

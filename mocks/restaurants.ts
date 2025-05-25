@@ -89,10 +89,16 @@ const restaurants: Array<Restaurant> = [
     ],
     reviews: [
       {
-        id: '53b642d7-5e86-4717-a466-0640a1dee076',
+        id: '53b642d7-5686-4717-a466-0640a1dee076',
         user: 'Agata',
         text: 'Best bakery',
         rating: 5,
+      },
+      {
+        id: '53b642d7-5e86-4717-a467-abc0a1ase076',
+        user: 'Kristy',
+        text: 'Worst bakery',
+        rating: 1,
       },
     ],
   },
@@ -112,16 +118,22 @@ const restaurants: Array<Restaurant> = [
         price: 10,
         ingredients: ['bread', 'beef'],
       },
+      {
+        id: '99bfffbb-e53b-4b7e-b9c2-23b63b77385d',
+        name: 'Flat Iron Burger Oceanic',
+        price: 10,
+        ingredients: ['bread', 'salmon'],
+      },
     ],
     reviews: [
       {
-        id: '5db6247b-ab1c-49db-be1f-8dd27fd38b81',
+        id: '53bagcd7-5e86-4717-a466-0640a1dee076',
         user: 'Sam',
         text: 'Finally! This place is amazing place for breakfast, lunch, dinner and supper',
         rating: 5,
       },
       {
-        id: '381b0c31-6360-43ff-80d1-581a116159d8',
+        id: '53b64df7-5e86-4717-a467-abc0a1dee076',
         user: 'Rebeca',
         text: 'Meat here is extremely delicious',
         rating: 5,
