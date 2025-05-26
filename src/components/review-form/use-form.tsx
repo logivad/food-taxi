@@ -43,8 +43,9 @@ const reducer = (
       return initialState;
 
     default: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const exhaustiveCheck: never = action;
-      return exhaustiveCheck;
+      return state;
     }
   }
 };
