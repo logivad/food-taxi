@@ -43,6 +43,7 @@ const reducer = (
       return initialState;
 
     default: {
+      // @ts-expect-error Это нужно только для проверки
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const exhaustiveCheck: never = action;
       return state;
