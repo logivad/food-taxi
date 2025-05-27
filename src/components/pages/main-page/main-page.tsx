@@ -1,6 +1,6 @@
 import { useState, type FC } from 'react';
 
-import { RestaurantsTabs } from '../../nav/nav';
+import { RestaurantsTabs } from '../../restaurants-tabs/restaurants-tabs';
 import { RestaurantCard } from '../../restaurant/restaurant-card';
 import restaurantsMock from '../../../../mocks/restaurants';
 
@@ -16,7 +16,7 @@ export const RestaurantsPage: FC = () => {
           restaurant !== activeRestaurant && setActiveRestaurant(restaurant)
         }
       />
-      <RestaurantCard restaurant={activeRestaurant} />
+      <RestaurantCard restaurant={activeRestaurant} key={activeRestaurant.id} />
     </div>
   );
 };
