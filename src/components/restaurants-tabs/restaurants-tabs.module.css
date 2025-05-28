@@ -1,0 +1,15 @@
+.tablist {
+  padding: 10px 0;
+}
+
+.tab {
+  outline: none;
+  border: 1px solid chocolate;
+  background-color: antiquewhite;
+  padding: 4px 8px;
+  font-size: 20px;
+}
+
+.tab + .tab {
+  margin-left: 4px;
+}
