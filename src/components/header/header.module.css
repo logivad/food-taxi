@@ -1,4 +1,4 @@
 .header {
-    background-color: bisque;
-    padding: 10px;
+  background-color: var(--base-300);
+  padding: 10px;
 }

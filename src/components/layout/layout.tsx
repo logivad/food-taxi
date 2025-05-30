@@ -1,16 +1,15 @@
 import { type FC, type PropsWithChildren } from 'react';
 import { Footer } from '../footer/footer';
 import { Header } from '../header/header';
-import { Container } from '../ui-kit/container/container';
-import styles from './layout.module.css'
+import styles from './layout.module.css';
+import { Progress } from '../ui-kit/progress/progress';
 
 export const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className={styles.layout}>
+      <Progress />
       <Header />
-        <Container>
-          {children}
-        </Container>
+      {children}
       <Footer />
     </div>
   );

@@ -1,13 +1,18 @@
 .tablist {
   padding: 10px 0;
+  background-color: var(--base-400);
 }
 
 .tab {
   outline: none;
-  border: 1px solid chocolate;
-  background-color: antiquewhite;
+  border: none;
+  background-color: var(--base-300);
   padding: 4px 8px;
   font-size: 20px;
+}
+
+.tab:hover {
+  background-color: var(--base-500);
 }
 
 .tab + .tab {

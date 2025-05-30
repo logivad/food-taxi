@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+
+  --base-700: #007c21;
+  --base-500: #248f40;
+  --base-400: #00bf32;
+  --base-300: #64df85;
+}

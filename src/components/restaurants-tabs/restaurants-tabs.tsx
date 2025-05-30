@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import type { Restaurant } from '../../model/restaurant';
-import styles from './restaurants-tabs.module.css'
+import styles from './restaurants-tabs.module.css';
+import { Container } from '../ui-kit/container/container';
 
 type Props = {
   restaurants: Array<Restaurant>;
@@ -13,15 +14,17 @@ export const RestaurantsTabs: FC<Props> = ({
 }) => {
   return (
     <nav className={styles.tablist}>
-      {restaurants.map((restaurant) => (
-        <button
-          className={styles.tab}
-          key={restaurant.id}
-          onClick={() => onRestaurantSelect(restaurant)}
-        >
-          {restaurant.name}
-        </button>
-      ))}
+      <Container>
+        {restaurants.map((restaurant) => (
+          <button
+            className={styles.tab}
+            key={restaurant.id}
+            onClick={() => onRestaurantSelect(restaurant)}
+          >
+            {restaurant.name}
+          </button>
+        ))}
+      </Container>
     </nav>
   );
 };

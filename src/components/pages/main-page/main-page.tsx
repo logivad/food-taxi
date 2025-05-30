@@ -3,6 +3,7 @@ import { useState, type FC } from 'react';
 import { RestaurantsTabs } from '../../restaurants-tabs/restaurants-tabs';
 import { RestaurantCard } from '../../restaurant/restaurant-card';
 import restaurantsMock from '../../../../mocks/restaurants';
+import { Container } from '../../ui-kit/container/container';
 
 export const RestaurantsPage: FC = () => {
   const [restaurants] = useState(restaurantsMock);
@@ -16,7 +17,13 @@ export const RestaurantsPage: FC = () => {
           restaurant !== activeRestaurant && setActiveRestaurant(restaurant)
         }
       />
-      <RestaurantCard restaurant={activeRestaurant} key={activeRestaurant.id} />
+
+      <Container>
+        <RestaurantCard
+          restaurant={activeRestaurant}
+          key={activeRestaurant.id}
+        />
+      </Container>
     </div>
   );
 };
