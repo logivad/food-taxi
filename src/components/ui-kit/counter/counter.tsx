@@ -1,4 +1,5 @@
 import { type FC } from 'react';
+import styles from './counter.module.css';
 
 export type Props = {
   value: number;
@@ -9,8 +10,9 @@ export type Props = {
 
 export const Counter: FC<Props> = ({ value, min, max, onChange }) => {
   return (
-    <span>
+    <span className={styles.counter}>
       <button
+        className={styles.button}
         type="button"
         onClick={() => onChange(value - 1)}
         disabled={value <= min}
@@ -19,6 +21,7 @@ export const Counter: FC<Props> = ({ value, min, max, onChange }) => {
       </button>
       {value}
       <button
+        className={styles.button}
         type="button"
         onClick={() => onChange(value + 1)}
         disabled={value >= max}
