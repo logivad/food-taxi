@@ -1,12 +1,12 @@
 import { useContext, useEffect, type FC } from 'react';
-import { Button } from '../ui-kit/button/button';
-import { ThemeContext } from '../../contexts';
+import { Button } from '../button/button';
+import { ThemeContext } from '../../../contexts';
 import classNames from 'classnames';
 
 const themeToLabel = new Map([
-  [null, 'системная'],
-  ['light', 'светлая'],
-  ['dark', 'тёмная'],
+  [null, 'тема: системная'],
+  ['light', 'тема: светлая'],
+  ['dark', 'тема: тёмная'],
 ]);
 
 export const ThemeButton: FC = () => {

@@ -1,4 +1,4 @@
-import type { Restaurant } from '../src/model/restaurant';
+import type { Restaurant } from '../src/model/restaurant.model';
 
 const restaurants: Array<Restaurant> = [
   {

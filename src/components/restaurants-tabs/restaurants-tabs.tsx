@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { Restaurant } from '../../model/restaurant';
+import type { Restaurant } from '../../model/restaurant.model';
 import styles from './restaurants-tabs.module.css';
 import { Container } from '../ui-kit/container/container';
 import { Button } from '../ui-kit/button/button';
