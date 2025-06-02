@@ -1,6 +1,6 @@
 .progress {
   height: 4px;
-  background: var(--color3);
+  background: var(--button-background);
   position: fixed;
   top: 0px;
   left: 0px;

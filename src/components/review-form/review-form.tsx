@@ -6,6 +6,7 @@ import {
   useForm,
   type ReviewFormState,
 } from './use-form';
+import { Button } from '../ui-kit/button/button';
 
 export type Props = {
   onReviewCreate: (review: ReviewFormState) => void;
@@ -50,11 +51,10 @@ export const ReviewForm: FC<Props> = ({ onReviewCreate }) => {
         />
       </p>
 
-      <button type="button" onClick={onClear}>
-        Очистить
-      </button>
-
-      <button type="submit">Отправить</button>
+      <span className="mr-1">
+        <Button onClick={onClear}>Очистить</Button>
+      </span>
+      <Button type="submit">Отправить</Button>
     </form>
   );
 };

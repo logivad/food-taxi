@@ -1,0 +1,21 @@
+.counter {
+  cursor: default;
+}
+
+.button {
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 4px;
+  background-color: var(--button-background);
+  color: var(--text-primary);
+  justify-content: center;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: var(--button-background-active);
+}

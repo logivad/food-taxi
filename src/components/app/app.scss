@@ -1,0 +1,30 @@
+@use './theme.scss';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-base);
+  color: var(--text-base);
+}
+
+@for $i from 1 through 10 {
+  .mt-#{$i} {
+    margin-top: #{$i * 4}px;
+  }
+
+  .mr-#{$i} {
+    margin-right: #{$i * 4}px;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: #{$i * 4}px;
+  }
+
+  .ml-#{$i} {
+    margin-left: #{$i * 4}px;
+  }
+}

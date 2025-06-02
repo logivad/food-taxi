@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { Menu } from '../../model/restaurant';
+import type { Menu } from '../../model/restaurant.model';
 import { Dish } from './dish';
 
 export const RestaurantMenu: FC<{ menu: Array<Menu> }> = ({ menu }) => {

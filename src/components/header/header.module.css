@@ -1,4 +1,13 @@
 .header {
-  background-color: var(--base-300);
+  background: var(--header-background);
   padding: 10px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.themeSwitch {
+  margin-left: auto;
 }

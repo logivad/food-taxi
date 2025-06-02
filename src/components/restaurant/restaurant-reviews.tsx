@@ -1,16 +1,19 @@
-import type { FC } from 'react';
-import type { Review } from '../../model/restaurant';
+import { useContext, type FC } from 'react';
+import type { Review } from '../../model/restaurant.model';
 import { ReviewForm } from '../review-form/review-form';
 import type { ReviewFormState } from '../review-form/use-form';
+import { UserContext } from '../../contexts/user/user-context';
 
 export const RestaurantReviews: FC<{ reviews: Array<Review> }> = ({
   reviews,
 }) => {
   const showReview = (review: ReviewFormState) => console.log(review);
+  const { user } = useContext(UserContext);
 
   return (
     <div>
       <p>Отзывы</p>
+
       {reviews.length ? (
         <ul>
           {reviews.map(({ id, text }) => (
@@ -18,9 +21,13 @@ export const RestaurantReviews: FC<{ reviews: Array<Review> }> = ({
           ))}
         </ul>
       ) : (
-        <p>Отзывов пока нет</p>
+        <p>
+          Отзывов пока нет
+          {!user && <>. Войдите чтобы оставить отзыв</>}
+        </p>
       )}
-      <ReviewForm onReviewCreate={showReview} />
+
+      {user && <ReviewForm onReviewCreate={showReview} />}
     </div>
   );
 };

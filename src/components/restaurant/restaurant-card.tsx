@@ -1,5 +1,5 @@
 import { type FC } from 'react';
-import type { Restaurant } from '../../model/restaurant';
+import type { Restaurant } from '../../model/restaurant.model';
 import { RestaurantMenu } from './restaurant-menu';
 import { RestaurantReviews } from './restaurant-reviews';
 
