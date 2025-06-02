@@ -2,7 +2,7 @@ import { useContext, type FC } from 'react';
 import type { Review } from '../../model/restaurant.model';
 import { ReviewForm } from '../review-form/review-form';
 import type { ReviewFormState } from '../review-form/use-form';
-import { UserContext } from '../../contexts';
+import { UserContext } from '../../contexts/user/user-context';
 
 export const RestaurantReviews: FC<{ reviews: Array<Review> }> = ({
   reviews,

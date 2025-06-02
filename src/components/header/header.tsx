@@ -1,17 +1,11 @@
-import { useContext, type FC } from 'react';
+import { type FC } from 'react';
 import styles from './header.module.css';
 import { Container } from '../ui-kit/container/container';
 import { ThemeButton } from '../ui-kit/theme-button/theme-button';
-import { UserContext } from '../../contexts';
-import { Button } from '../ui-kit/button/button';
 import classNames from 'classnames';
+import { HeaderAuthButton } from './header-auth-button';
 
 export const Header: FC = () => {
-  const { user, setUser } = useContext(UserContext);
-
-  const auth = () =>
-    setUser({ id: 'mock-user-id', name: prompt('Как вас зовут?') || 'Аноним' });
-
   return (
     <header className={styles.header}>
       <Container>
@@ -21,14 +15,7 @@ export const Header: FC = () => {
             <ThemeButton />
           </div>
 
-          {user ? (
-            <>
-              <Button onClick={() => setUser(null)}>Выйти</Button>
-              <span className="ml-2">{user.name}</span>
-            </>
-          ) : (
-            <Button onClick={auth}>Войти</Button>
-          )}
+          <HeaderAuthButton />
         </div>
       </Container>
     </header>

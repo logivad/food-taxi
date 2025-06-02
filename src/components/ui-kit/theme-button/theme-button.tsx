@@ -1,37 +1,27 @@
-import { useContext, useEffect, type FC } from 'react';
-import { Button } from '../button/button';
-import { ThemeContext } from '../../../contexts';
-import classNames from 'classnames';
-
-const themeToLabel = new Map([
-  [null, 'тема: системная'],
-  ['light', 'тема: светлая'],
-  ['dark', 'тема: тёмная'],
-]);
+import { useContext, type FC } from 'react';
+import { ThemeContext } from '../../../contexts/theme/theme-context';
 
 export const ThemeButton: FC = () => {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  useEffect(() => {
-    document.body.className = classNames({
-      light: theme === 'light',
-      dark: theme === 'dark',
-    });
-  }, [theme]);
+  const selectedValue = theme ? theme : '';
 
-  const cycleTheme = () => {
-    switch (theme) {
-      case null:
-        setTheme('light');
-        break;
-      case 'light':
-        setTheme('dark');
-        break;
-      case 'dark':
-        setTheme(null);
-        break;
+  const onThemeSelect = (value: string) => {
+    if (value === 'light' || value === 'dark') {
+      setTheme(value);
+    } else {
+      setTheme(null);
     }
   };
 
-  return <Button onClick={cycleTheme}>{themeToLabel.get(theme)}</Button>;
+  return (
+    <select
+      value={selectedValue}
+      onChange={(event) => onThemeSelect(event.target.value)}
+    >
+      <option value="light">Светлая</option>
+      <option value="dark">Тёмная</option>
+      <option value="">Системная</option>
+    </select>
+  );
 };
