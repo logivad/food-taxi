@@ -3,9 +3,15 @@ import styles from './header.module.css';
 import { Container } from '../ui-kit/container/container';
 import { ThemeButton } from '../ui-kit/theme-button/theme-button';
 import classNames from 'classnames';
-import { HeaderAuthButton } from './header-auth-button';
+import { HeaderAuthButton } from './header-auth-button/header-auth-button';
+import { CartButton } from './cart-button/cart-button';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../redux/entities/user/slice';
+import type { RootState } from '../../redux/store';
 
 export const Header: FC = () => {
+  const user = useSelector((state: RootState) => selectCurrentUser(state));
+
   return (
     <header className={styles.header}>
       <Container>
@@ -15,7 +21,15 @@ export const Header: FC = () => {
             <ThemeButton />
           </div>
 
-          <HeaderAuthButton />
+          {!!user && (
+            <div className="mr-2">
+              <CartButton />
+            </div>
+          )}
+
+          <div className={styles.auth}>
+            <HeaderAuthButton />
+          </div>
         </div>
       </Container>
     </header>

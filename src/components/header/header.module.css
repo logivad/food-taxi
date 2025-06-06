@@ -11,3 +11,10 @@
 .themeSwitch {
   margin-left: auto;
 }
+
+.auth {
+  display: flex;
+  align-items: center;
+  width: 175px;
+  justify-content: flex-end;
+}

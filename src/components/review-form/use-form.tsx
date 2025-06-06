@@ -12,7 +12,8 @@ export type ReviewFormState = {
 
 type ReviewFormAction =
   | { type: 'name' | 'text'; value: string }
-  | { type: 'rating'; value: number }
+  | { type: 'rating-increment' }
+  | { type: 'rating-decrement' }
   | { type: 'clear' };
 
 const initialState: ReviewFormState = {
@@ -32,10 +33,17 @@ const reducer = (
     case 'text':
       return { ...state, text: action.value };
 
-    case 'rating': {
+    case 'rating-increment': {
       return {
         ...state,
-        rating: action.value,
+        rating: state.rating + 1,
+      };
+    }
+
+    case 'rating-decrement': {
+      return {
+        ...state,
+        rating: state.rating - 1,
       };
     }
 
@@ -43,9 +51,6 @@ const reducer = (
       return initialState;
 
     default: {
-      // @ts-expect-error Это нужно только для проверки
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const exhaustiveCheck: never = action;
       return state;
     }
   }
@@ -62,8 +67,12 @@ export const useForm = () => {
     dispatch({ type: 'text', value });
   };
 
-  const onRatingChange = (value: number) => {
-    dispatch({ type: 'rating', value });
+  const onRatingIncrement = () => {
+    dispatch({ type: 'rating-increment' });
+  };
+
+  const onRatingDecrement = () => {
+    dispatch({ type: 'rating-decrement' });
   };
 
   const onClear = () => {
@@ -74,7 +83,8 @@ export const useForm = () => {
     form,
     onNameChange,
     onTextChange,
-    onRatingChange,
+    onRatingIncrement,
+    onRatingDecrement,
     onClear,
   };
 };

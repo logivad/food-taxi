@@ -28,3 +28,7 @@ body {
     margin-left: #{$i * 4}px;
   }
 }
+
+.relative {
+  position: relative;
+}
