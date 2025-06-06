@@ -1,29 +1,27 @@
 import type { FC } from 'react';
-import type { Restaurant } from '../../model/restaurant.model';
 import styles from './restaurants-tabs.module.css';
 import { Container } from '../ui-kit/container/container';
-import { Button } from '../ui-kit/button/button';
+import { RestaurantTab } from './restaurant-tab';
 
 type Props = {
-  restaurants: Array<Restaurant>;
-  onRestaurantSelect: (restaurant: Restaurant) => void;
+  restaurantIds: Array<string>;
+  onRestaurantIdSelect: (restaurantId: string) => void;
 };
 
 export const RestaurantsTabs: FC<Props> = ({
-  restaurants,
-  onRestaurantSelect,
+  restaurantIds,
+  onRestaurantIdSelect: onRestaurantSelect,
 }) => {
   return (
     <nav className={styles.tablist}>
       <Container>
-        {restaurants.map((restaurant) => (
-          <span className={styles.tab} key={restaurant.id}>
-            <Button
-              key={restaurant.id}
-              onClick={() => onRestaurantSelect(restaurant)}
-            >
-              {restaurant.name}
-            </Button>
+        {restaurantIds.map((restaurantId) => (
+          <span className={styles.tab} key={restaurantId}>
+            <RestaurantTab
+              key={restaurantId}
+              onClick={() => onRestaurantSelect(restaurantId)}
+              restaurantId={restaurantId}
+            />
           </span>
         ))}
       </Container>

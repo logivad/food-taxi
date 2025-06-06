@@ -1,16 +1,22 @@
 import { type FC } from 'react';
-import type { Restaurant } from '../../model/restaurant.model';
 import { RestaurantMenu } from './restaurant-menu';
 import { RestaurantReviews } from './restaurant-reviews';
+import { useSelector } from 'react-redux';
+import { selectRestaurantById } from '../../redux/entities/restaurant/slice';
+import type { RootState } from '../../redux/store';
 
-export const RestaurantCard: FC<{ restaurant: Restaurant }> = ({
-  restaurant,
+export const RestaurantCard: FC<{ restaurantId: string }> = ({
+  restaurantId,
 }) => {
+  const restaurant = useSelector((state: RootState) =>
+    selectRestaurantById(state, restaurantId),
+  );
+
   return (
     <div>
       <h2>{restaurant.name}</h2>
-      <RestaurantMenu menu={restaurant.menu} />
-      <RestaurantReviews reviews={restaurant.reviews} />
+      <RestaurantMenu menuIds={restaurant.menu} />
+      <RestaurantReviews reviewIds={restaurant.reviews} />
     </div>
   );
 };

@@ -1,27 +1,31 @@
 import { useState, type FC } from 'react';
 
 import { RestaurantsTabs } from '../../restaurants-tabs/restaurants-tabs';
-import { RestaurantCard } from '../../restaurant/restaurant-card';
-import restaurantsMock from '../../../../mocks/restaurants';
+import { selectRestaurantIds } from '../../../redux/entities/restaurant/slice';
+import { useSelector } from 'react-redux';
 import { Container } from '../../ui-kit/container/container';
+import { RestaurantCard } from '../../restaurant/restaurant-card';
 
 export const RestaurantsPage: FC = () => {
-  const [restaurants] = useState(restaurantsMock);
-  const [activeRestaurant, setActiveRestaurant] = useState(restaurants[0]);
+  const restaurantIds = useSelector(selectRestaurantIds);
+  const [activeRestaurantId, setActiveRestaurantId] = useState(
+    restaurantIds[0],
+  );
 
   return (
     <div>
       <RestaurantsTabs
-        restaurants={restaurants}
-        onRestaurantSelect={(restaurant) =>
-          restaurant !== activeRestaurant && setActiveRestaurant(restaurant)
+        restaurantIds={restaurantIds}
+        onRestaurantIdSelect={(restaurantId) =>
+          restaurantId !== activeRestaurantId &&
+          setActiveRestaurantId(restaurantId)
         }
       />
 
       <Container>
         <RestaurantCard
-          restaurant={activeRestaurant}
-          key={activeRestaurant.id}
+          restaurantId={activeRestaurantId}
+          key={activeRestaurantId}
         />
       </Container>
     </div>

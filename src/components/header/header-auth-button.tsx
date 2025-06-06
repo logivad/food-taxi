@@ -1,20 +1,18 @@
-import { useContext, type FC } from 'react';
+import { type FC } from 'react';
 import { Button } from '../ui-kit/button/button';
-import { UserContext } from '../../contexts/user/user-context';
+import { selectCurrentUser } from '../../redux/entities/user/slice';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../redux/store';
 
 export const HeaderAuthButton: FC = () => {
-  const { user, logIn, logOut } = useContext(UserContext);
-
-  const auth = () => {
-    logIn(prompt('Как вас зовут?') || undefined);
-  };
+  const user = useSelector((state: RootState) => selectCurrentUser(state));
 
   return user ? (
     <>
-      <Button onClick={logOut}>Выйти</Button>
+      <Button>Выйти</Button>
       <span className="ml-2">{user.name}</span>
     </>
   ) : (
-    <Button onClick={auth}>Войти</Button>
+    <Button>Войти</Button>
   );
 };
