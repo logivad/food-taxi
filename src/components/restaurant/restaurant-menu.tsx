@@ -1,9 +1,9 @@
 import type { FC } from 'react';
-import { Link, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { useSelector } from 'react-redux';
 import { selectRestaurantById } from '../../redux/entities/restaurant/slice';
 import type { RootState } from '../../redux/store';
-import { DishName } from '../dish-name/dish-name';
+import { Dish } from './dish';
 
 export const RestaurantMenu: FC = () => {
   const { restaurantId } = useParams();
@@ -18,9 +18,7 @@ export const RestaurantMenu: FC = () => {
       <ol>
         {restaurant.menu.map((id) => (
           <li key={id}>
-            <Link to={'/dish/' + id}>
-              <DishName dishId={id} />
-            </Link>
+            <Dish id={id} nameAsLink />
           </li>
         ))}
       </ol>

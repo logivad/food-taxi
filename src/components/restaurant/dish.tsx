@@ -9,11 +9,15 @@ import {
   removeFromCart,
   selectItemAmountById,
 } from '../../redux/entities/cart/slice';
+import { Link } from 'react-router';
 
 const MIN_DISH_COUNT = 0;
 const MAX_DISH_COUNT = 3;
 
-export const Dish: FC<{ id: string }> = ({ id }) => {
+export const Dish: FC<{ id: string; nameAsLink?: boolean }> = ({
+  id,
+  nameAsLink,
+}) => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => selectCurrentUser(state));
   const dish = useSelector((state: RootState) => selectDishById(state, id));
@@ -24,7 +28,11 @@ export const Dish: FC<{ id: string }> = ({ id }) => {
 
   return (
     <span>
-      {dish.name}{' '}
+      {nameAsLink ? (
+        <Link to={'/dish/' + dish.id}>{dish.name}</Link>
+      ) : (
+        <span>{dish.name}</span>
+      )}{' '}
       {user && (
         <Counter
           value={count}
