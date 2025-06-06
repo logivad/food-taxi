@@ -1,14 +1,16 @@
-import { useContext, type FC } from 'react';
+import { type FC } from 'react';
 import { ReviewForm } from '../review-form/review-form';
 import type { ReviewFormState } from '../review-form/use-form';
-import { UserContext } from '../../contexts/user/user-context';
 import { RestaurantReview } from './restaurant-review';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../redux/entities/user/slice';
+import type { RootState } from '../../redux/store';
 
 export const RestaurantReviews: FC<{ reviewIds: Array<string> }> = ({
   reviewIds,
 }) => {
   const showReview = (review: ReviewFormState) => console.log(review);
-  const { user } = useContext(UserContext);
+  const user = useSelector((state: RootState) => selectCurrentUser(state));
 
   return (
     <div>

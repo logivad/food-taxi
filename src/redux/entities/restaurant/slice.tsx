@@ -4,12 +4,12 @@ import type { Restaurant } from '../../../model/restaurant.model';
 
 const initialState = {
   ids: normalizedRestaurants.map(({ id }) => id),
-  entities: normalizedRestaurants.reduce(
+  entities: normalizedRestaurants.reduce<Record<string, Restaurant>>(
     (acc, restaurant) => {
       acc[restaurant.id] = restaurant;
       return acc;
     },
-    {} as Record<string, Restaurant>,
+    {},
   ),
 };
 
