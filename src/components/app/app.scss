@@ -28,3 +28,11 @@ body {
     margin-left: #{$i * 4}px;
   }
 }
+
+.relative {
+  position: relative;
+}
+
+a {
+  color: var(--link);
+}

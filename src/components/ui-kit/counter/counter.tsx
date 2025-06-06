@@ -5,16 +5,23 @@ export type Props = {
   value: number;
   min: number;
   max: number;
-  onChange: (value: number) => void;
+  onIncrement: () => void;
+  onDecrement: () => void;
 };
 
-export const Counter: FC<Props> = ({ value, min, max, onChange }) => {
+export const Counter: FC<Props> = ({
+  value,
+  min,
+  max,
+  onIncrement,
+  onDecrement,
+}) => {
   return (
     <span className={styles.counter}>
       <button
         className={styles.button}
         type="button"
-        onClick={() => onChange(value - 1)}
+        onClick={onDecrement}
         disabled={value <= min}
       >
         -
@@ -23,7 +30,7 @@ export const Counter: FC<Props> = ({ value, min, max, onChange }) => {
       <button
         className={styles.button}
         type="button"
-        onClick={() => onChange(value + 1)}
+        onClick={onIncrement}
         disabled={value >= max}
       >
         +
