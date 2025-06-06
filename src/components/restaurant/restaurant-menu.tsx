@@ -1,15 +1,14 @@
 import type { FC } from 'react';
-import type { Menu } from '../../model/restaurant.model';
 import { Dish } from './dish';
 
-export const RestaurantMenu: FC<{ menu: Array<Menu> }> = ({ menu }) => {
+export const RestaurantMenu: FC<{ menuIds: Array<string> }> = ({ menuIds }) => {
   return (
     <div>
       <h3>Меню</h3>
       <ol>
-        {menu.map(({ id, name }) => (
+        {menuIds.map((id) => (
           <li key={id}>
-            <Dish title={name} />
+            <Dish id={id} />
           </li>
         ))}
       </ol>
