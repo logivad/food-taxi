@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectTotalCartItems } from '../../../redux/entities/cart/slice';
 import type { RootState } from '../../../redux/store';
 import styles from './cart-button.module.css';
+import { Link } from 'react-router';
 
 export const CartButton: FC = () => {
   const totalCartItems = useSelector((state: RootState) =>
@@ -13,12 +14,14 @@ export const CartButton: FC = () => {
 
   return (
     <div className="relative">
-      <Button>
-        <CartIcon />
-        {!!totalCartItems && (
-          <span className={styles.count}>{totalCartItems}</span>
-        )}
-      </Button>
+      <Link to="./cart">
+        <Button>
+          <CartIcon />
+          {!!totalCartItems && (
+            <span className={styles.count}>{totalCartItems}</span>
+          )}
+        </Button>
+      </Link>
     </div>
   );
 };

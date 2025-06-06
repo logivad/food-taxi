@@ -3,17 +3,23 @@ import { Button } from '../../ui-kit/button/button';
 import { setUser, selectCurrentUser } from '../../../redux/entities/user/slice';
 import { useDispatch, useSelector } from 'react-redux';
 import type { RootState } from '../../../redux/store';
-import type { User } from '../../../model/user.model';
 import { clearCart } from '../../../redux/entities/cart/slice';
+import { useNavigate } from 'react-router';
 
 export const HeaderAuthButton: FC = () => {
   const user = useSelector((state: RootState) => selectCurrentUser(state));
   const dispatch = useDispatch();
-  const mockUser: User = { id: 'one', name: 'Аноним' };
+  const navigate = useNavigate();
+
+  const getUser = () => ({
+    id: 'userid',
+    name: prompt('Как вас зовут?') || 'Аноним',
+  });
 
   const logout = () => {
     dispatch(setUser(null));
     dispatch(clearCart());
+    navigate('/');
   };
 
   return user ? (
@@ -22,6 +28,6 @@ export const HeaderAuthButton: FC = () => {
       <Button onClick={logout}>Выйти</Button>
     </>
   ) : (
-    <Button onClick={() => dispatch(setUser(mockUser))}>Войти</Button>
+    <Button onClick={() => dispatch(setUser(getUser()))}>Войти</Button>
   );
 };

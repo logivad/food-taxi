@@ -4,6 +4,6 @@ import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/food-taxi/',
+  // base: '/food-taxi/',
   plugins: [react(), svgr()],
 });

@@ -55,6 +55,7 @@
 @mixin light-theme {
   --background-base: var(--pallete-white);
   --text-base: var(--pallete-base-700);
+  --link: var(--pallete-primary-600);
   --button-background: var(--pallete-primary-200);
   --button-background-active: var(--pallete-primary-100);
   --text-primary: var(--pallete-base-700);
@@ -64,6 +65,7 @@
 @mixin dark-theme {
   --background-base: var(--pallete-base-700);
   --text-base: var(--pallete-base-200);
+  --link: var(--pallete-primary-400);
   --button-background: var(--pallete-primary-700);
   --button-background-active: var(--pallete-primary-600);
   --text-primary: var(--pallete-base-200);

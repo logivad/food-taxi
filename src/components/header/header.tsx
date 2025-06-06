@@ -8,12 +8,14 @@ import { CartButton } from './cart-button/cart-button';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../redux/entities/user/slice';
 import type { RootState } from '../../redux/store';
+import { Progress } from '../ui-kit/progress/progress';
 
 export const Header: FC = () => {
   const user = useSelector((state: RootState) => selectCurrentUser(state));
 
   return (
     <header className={styles.header}>
+      <Progress />
       <Container>
         <div className={styles.content}>
           <span>Food taxi. Доставка для голодных животиков</span>
