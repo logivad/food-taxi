@@ -1,7 +1,6 @@
 import { type FC } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router';
 import { Container } from '../../ui-kit/container/container';
-import { Button } from '../../ui-kit/button/button';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../../../redux/store';
 import { selectRestaurantById } from '../../../redux/entities/restaurant/slice';
@@ -18,13 +17,24 @@ export const RestaurantPage: FC = () => {
 
       <div>
         <span className="mr-1">
-          <NavLink to="./">
-            <Button>Меню</Button>
+          <NavLink
+            to="./"
+            end
+            className={({ isActive }) =>
+              isActive ? 'link-button active' : 'link-button'
+            }
+          >
+            Меню
           </NavLink>
         </span>
 
-        <NavLink to="reviews">
-          <Button>Отзывы</Button>
+        <NavLink
+          to="reviews"
+          className={({ isActive }) =>
+            isActive ? 'link-button active' : 'link-button'
+          }
+        >
+          Отзывы
         </NavLink>
       </div>
       <Outlet />

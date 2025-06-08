@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { selectRestaurantById } from '../../redux/entities/restaurant/slice';
 import type { RootState } from '../../redux/store';
 import { NavLink } from 'react-router';
-import { Button } from '../ui-kit/button/button';
 
 export const RestaurantTab: FC<{
   restaurantId: string;
@@ -13,8 +12,13 @@ export const RestaurantTab: FC<{
   );
 
   return (
-    <NavLink to={restaurant.id}>
-      <Button>{restaurant.name}</Button>
+    <NavLink
+      to={restaurant.id}
+      className={({ isActive }) =>
+        isActive ? 'link-button active' : 'link-button'
+      }
+    >
+      {restaurant.name}
     </NavLink>
   );
 };

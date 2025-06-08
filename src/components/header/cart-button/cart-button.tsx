@@ -14,13 +14,11 @@ export const CartButton: FC = () => {
 
   return (
     <div className="relative">
-      <Link to="./cart">
-        <Button>
-          <CartIcon />
-          {!!totalCartItems && (
-            <span className={styles.count}>{totalCartItems}</span>
-          )}
-        </Button>
+      <Link to="./cart" className="link-button">
+        <CartIcon />
+        {!!totalCartItems && (
+          <span className={styles.count}>{totalCartItems}</span>
+        )}
       </Link>
     </div>
   );

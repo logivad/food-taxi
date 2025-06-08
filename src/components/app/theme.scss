@@ -57,7 +57,8 @@
   --text-base: var(--pallete-base-700);
   --link: var(--pallete-primary-600);
   --button-background: var(--pallete-primary-200);
-  --button-background-active: var(--pallete-primary-100);
+  --button-background-hover: var(--pallete-primary-100);
+  --button-background-active: var(--pallete-primary-300);
   --text-primary: var(--pallete-base-700);
   --header-background: var(--pallete-primary-300);
 }
@@ -67,7 +68,8 @@
   --text-base: var(--pallete-base-200);
   --link: var(--pallete-primary-400);
   --button-background: var(--pallete-primary-700);
-  --button-background-active: var(--pallete-primary-600);
+  --button-background-hover: var(--pallete-primary-600);
+  --button-background-active: var(--pallete-primary-500);
   --text-primary: var(--pallete-base-200);
   --header-background: var(--pallete-primary-900);
 }
