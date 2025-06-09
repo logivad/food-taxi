@@ -1,12 +1,5 @@
-.button {
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  background-color: var(--button-background);
-  color: var(--text-primary);
-}
+@use '../mixins.scss';
 
-.button:hover {
-  cursor: pointer;
-  background-color: var(--button-background-active);
+.button {
+  @include mixins.button;
 }

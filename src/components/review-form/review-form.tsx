@@ -13,8 +13,14 @@ export type Props = {
 };
 
 export const ReviewForm: FC<Props> = ({ onReviewCreate }) => {
-  const { form, onNameChange, onTextChange, onRatingChange, onClear } =
-    useForm();
+  const {
+    form,
+    onNameChange,
+    onTextChange,
+    onRatingDecrement,
+    onRatingIncrement,
+    onClear,
+  } = useForm();
 
   return (
     <form
@@ -47,7 +53,8 @@ export const ReviewForm: FC<Props> = ({ onReviewCreate }) => {
           value={form.rating}
           min={MIN_RATING}
           max={MAX_RATING}
-          onChange={onRatingChange}
+          onIncrement={onRatingIncrement}
+          onDecrement={onRatingDecrement}
         />
       </p>
 
