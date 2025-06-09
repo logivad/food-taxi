@@ -8,7 +8,7 @@ export const HomePage: FC = () => {
       <p>Добро пожаловать!</p>
       <p>
         Чтобы покушать,{' '}
-        <Link to="/restaurants">перейдите к выбору ресторана</Link>
+        <Link to="restaurants">перейдите к выбору ресторана</Link>
       </p>
     </Container>
   );
