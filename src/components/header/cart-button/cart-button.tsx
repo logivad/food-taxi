@@ -1,5 +1,4 @@
 import { type FC } from 'react';
-import { Button } from '../../ui-kit/button/button';
 import CartIcon from '../../../icons/cart.svg?react';
 import { useSelector } from 'react-redux';
 import { selectTotalCartItems } from '../../../redux/entities/cart/slice';

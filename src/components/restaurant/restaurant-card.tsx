@@ -15,8 +15,8 @@ export const RestaurantCard: FC<{ restaurantId: string }> = ({
   return (
     <div>
       <h2>{restaurant.name}</h2>
-      <RestaurantMenu menuIds={restaurant.menu} />
-      <RestaurantReviews reviewIds={restaurant.reviews} />
+      <RestaurantMenu />
+      <RestaurantReviews />
     </div>
   );
 };
