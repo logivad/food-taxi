@@ -6,15 +6,15 @@ import type { RootState } from '../../../redux/store';
 import { clearCart } from '../../../redux/entities/cart/slice';
 import { useNavigate } from 'react-router';
 
+const getUser = () => ({
+  id: 'userid',
+  name: prompt('Как вас зовут?') || 'Аноним',
+});
+
 export const HeaderAuthButton: FC = () => {
   const user = useSelector((state: RootState) => selectCurrentUser(state));
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const getUser = () => ({
-    id: 'userid',
-    name: prompt('Как вас зовут?') || 'Аноним',
-  });
 
   const logout = () => {
     dispatch(setUser(null));
@@ -22,12 +22,12 @@ export const HeaderAuthButton: FC = () => {
     navigate('/');
   };
 
-  return user ? (
+  return (
     <>
-      <span className="mr-2">{user.name}</span>
-      <Button onClick={logout}>Выйти</Button>
+      {user && <span className="mr-2">{user.name}</span>}
+      <Button onClick={user ? logout : () => dispatch(setUser(getUser()))}>
+        {user ? 'Выйти' : 'Войти'}
+      </Button>
     </>
-  ) : (
-    <Button onClick={() => dispatch(setUser(getUser()))}>Войти</Button>
   );
 };
