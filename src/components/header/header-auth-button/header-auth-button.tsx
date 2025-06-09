@@ -6,6 +6,8 @@ import type { RootState } from '../../../redux/store';
 import { clearCart } from '../../../redux/entities/cart/slice';
 import { useNavigate } from 'react-router';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const getUser = () => ({
   id: 'userid',
   name: prompt('Как вас зовут?') || 'Аноним',
@@ -19,7 +21,7 @@ export const HeaderAuthButton: FC = () => {
   const logout = () => {
     dispatch(setUser(null));
     dispatch(clearCart());
-    navigate('/');
+    navigate(baseUrl);
   };
 
   return (

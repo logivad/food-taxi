@@ -23,18 +23,20 @@ export const App: FC = () => {
         <BrowserRouter>
           <Layout>
             <Routes>
-              <Route path={baseUrl} element={<HomePage />} />
+              <Route path={baseUrl}>
+                <Route index element={<HomePage />} />
 
-              <Route path="restaurants" element={<RestaurantsPage />}>
-                <Route path=":restaurantId" element={<RestaurantPage />}>
-                  <Route index element={<RestaurantMenu />} />
-                  <Route path="reviews" element={<RestaurantReviews />} />
+                <Route path="restaurants" element={<RestaurantsPage />}>
+                  <Route path=":restaurantId" element={<RestaurantPage />}>
+                    <Route index element={<RestaurantMenu />} />
+                    <Route path="reviews" element={<RestaurantReviews />} />
+                  </Route>
                 </Route>
+
+                <Route path="dish/:dishId" element={<DishPage />} />
+
+                <Route path="cart" element={<Cart />} />
               </Route>
-
-              <Route path="dish/:dishId" element={<DishPage />} />
-
-              <Route path="cart" element={<Cart />} />
             </Routes>
           </Layout>
         </BrowserRouter>
