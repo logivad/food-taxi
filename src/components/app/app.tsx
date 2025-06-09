@@ -14,6 +14,8 @@ import { RestaurantsPage } from '../pages/restaurants-page/restaurants-page';
 import { Cart } from '../pages/cart-page/cart-page';
 import { DishPage } from '../pages/dish-page/dish-page';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 export const App: FC = () => {
   return (
     <Provider store={store}>
@@ -21,18 +23,18 @@ export const App: FC = () => {
         <BrowserRouter>
           <Layout>
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route path={baseUrl} element={<HomePage />} />
 
-              <Route path="/restaurants" element={<RestaurantsPage />}>
+              <Route path="restaurants" element={<RestaurantsPage />}>
                 <Route path=":restaurantId" element={<RestaurantPage />}>
                   <Route index element={<RestaurantMenu />} />
                   <Route path="reviews" element={<RestaurantReviews />} />
                 </Route>
               </Route>
 
-              <Route path="/dish/:dishId" element={<DishPage />} />
+              <Route path="dish/:dishId" element={<DishPage />} />
 
-              <Route path="/cart" element={<Cart />} />
+              <Route path="cart" element={<Cart />} />
             </Routes>
           </Layout>
         </BrowserRouter>
