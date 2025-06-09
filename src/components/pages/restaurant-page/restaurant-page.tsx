@@ -18,7 +18,7 @@ export const RestaurantPage: FC = () => {
       <div>
         <span className="mr-1">
           <NavLink
-            to="./"
+            to="."
             end
             className={({ isActive }) =>
               isActive ? 'link-button active' : 'link-button'
