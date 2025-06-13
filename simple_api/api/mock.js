@@ -1,6 +1,19 @@
-import type { Dish, Restaurant, Review } from '../src/model/restaurant.model';
+export const users = [
+  {
+    id: 'hr83h29h9h9u12h9213',
+    name: 'Artem',
+  },
+  {
+    id: 'jg4985gj94',
+    name: 'Andrey',
+  },
+  {
+    id: 'asdasdoi29tu384f',
+    name: 'Irina',
+  },
+];
 
-export const normalizedDishes: Array<Dish> = [
+export const dishes = [
   {
     id: 'd75f762a-eadd-49be-8918-ed0daa8dd024',
     name: 'Chicken tikka masala',
@@ -69,7 +82,7 @@ export const normalizedDishes: Array<Dish> = [
   },
 ];
 
-export const normalizedReviews: Array<Review> = [
+export const reviews = [
   {
     id: '53b642d7-5686-4717-a466-0640a1dee076',
     user: 'Agata',
@@ -102,7 +115,7 @@ export const normalizedReviews: Array<Review> = [
   },
 ];
 
-export const normalizedRestaurants: Array<Restaurant> = [
+export const restaurants = [
   {
     id: 'a757a0e9-03c1-4a2a-b384-8ac21dbe2fb2',
     name: 'Dishome',

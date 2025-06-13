@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build --base=/food-taxi/",
     "lint": "eslint .",
+    "start-server": "node simple_api/server.js",
     "preview": "vite preview"
   },
   "dependencies": {
