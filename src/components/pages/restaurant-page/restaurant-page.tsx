@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 import { NavLink, Outlet, useParams } from 'react-router';
 import { Container } from '../../ui-kit/container/container';
 import { useSelector } from 'react-redux';
@@ -13,7 +13,7 @@ export const RestaurantPage: FC = () => {
 
   return (
     <Container>
-      <h1>{restaurant.name}</h1>
+      <h1>{restaurant?.name}</h1>
 
       <div>
         <span className="mr-1">

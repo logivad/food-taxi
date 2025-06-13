@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, type ConfigureStoreOptions } from '@reduxjs/toolkit';
 import {
   restaurantReducer,
   restaurantSlice,
@@ -8,7 +8,7 @@ import { reviewReducer, reviewSlice } from './entities/review/slice';
 import { userReducer, userSlice } from './entities/user/slice';
 import { cartReducer, cartSlice } from './entities/cart/slice';
 
-export const store = configureStore({
+const options: ConfigureStoreOptions = {
   reducer: {
     [restaurantSlice.name]: restaurantReducer,
     [dishSlice.name]: dishReducer,
@@ -16,7 +16,10 @@ export const store = configureStore({
     [userSlice.name]: userReducer,
     [cartSlice.name]: cartReducer,
   },
-});
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+};
+
+export const store = configureStore(options);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
